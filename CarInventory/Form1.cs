@@ -11,7 +11,7 @@ namespace CarInventory
 {
     public partial class Form1 : Form
     {
-
+        List<Car> carsDB = new List<Car>();
         public Form1()
         {
             InitializeComponent();
@@ -26,11 +26,13 @@ namespace CarInventory
             newCar.colour = colourInput.Text;
             newCar.mileage = Convert.ToInt32(mileageInput.Text);
 
-            outputLabel.Text = Convert.ToString(newCar.year) + "\n";
-            outputLabel.Text += newCar.make + "\n";
-            outputLabel.Text += newCar.colour + "\n";
-            outputLabel.Text += newCar.mileage + "\n";
+            carsDB.Add(newCar);
+            outputLabel.Text = " ";
 
+            foreach (Car c in carsDB)
+            {
+                outputLabel.Text += c.year + ", " + c.make + ", " + c.colour + ", " + c.mileage + "\n";
+            }
         }
     }
 }
