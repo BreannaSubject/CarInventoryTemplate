@@ -19,12 +19,14 @@ namespace CarInventory
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Car newCar = new Car();
+            int year = Convert.ToInt16(yearInput.Text);
+            string make = makeInput.Text;
+            string colour = colourInput.Text;
+            int mileage = Convert.ToInt32(mileageInput.Text);
 
-            newCar.year = Convert.ToInt16(yearInput.Text);
-            newCar.make = makeInput.Text;
-            newCar.colour = colourInput.Text;
-            newCar.mileage = Convert.ToInt32(mileageInput.Text);
+            Car newCar = new Car(year, make, colour, mileage);
+
+          
 
             carsDB.Add(newCar);
             outputLabel.Text = " ";
